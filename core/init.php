@@ -7,9 +7,9 @@
             'host' => '127.0.0.1',
             'username' => 'root',
             'password' => 'root',
-            'db' => 'lr'
+            'db' => 'crm'
         ),
-// SET UP COOKIE DETAILS
+// SET UP "REMEMBER ME" DETAILS
         'remember' => array(
             'cookie_name' => 'hash',
             'cookie_expiry' => 604800
@@ -19,7 +19,7 @@
             'session_name' => 'user'
         )
     );
-// AUTOLOADING CLASSES
+// AUTOLOADING CLASSES. $ CLASS IS BEING SUBSTITUTED WITH WHATEVER CLASS IS IN USE
     spl_autoload_register(function($class) {
         require_once 'classes/' . $class . '.php';
     });
