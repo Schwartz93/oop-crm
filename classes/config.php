@@ -3,6 +3,7 @@
  *  Config Klasse: 
  *  
  *  Statische, öffentliche Funktion "get" wird definiert.
+ * 
  *  Innerhalb der Klammern wird $path erstellt und gleich "null" gesetzt.
  *  $path wird anschließend mit "if" auf das Vorhandensein eines Werts überprüft.
  *  Ist das Ergebnis dieser if Abfrage true ($path enthält einen Wert), wird das "config" Array in einer Variable $config gespeichert.
@@ -11,7 +12,7 @@
  *  Mit "isset" wird überprüft ob die in $value gespeicherten Werte auch im "$GLOBALS" Array existieren.
  *  Existieren sie,werden sie einzeln in die $config Variable gespeichert und anschließend zrückgegeben.
  *  $config Wird bei jedem Schleifendurchlauf neu zugewiesen, da zu Beginn nur "mysql" teil des "config" Arrays ist. "host" ist Teil des "mysql" Arrays.
- *   Daher muss $config im nächsten Durchlauf auf "mysql" gesetzt werden.
+ *  Daher muss $config im nächsten Durchlauf auf "mysql" gesetzt werden.
  * 
  *  Wird $path kein Wert übergeben wird die Funktion mit return false beendet.
  * 

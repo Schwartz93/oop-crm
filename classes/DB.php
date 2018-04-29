@@ -1,10 +1,17 @@
 <?php 
 /**
  * DB Klasse wird erstellt.
+ * 
  * Statische Eigenschaft werden gesetzt: $instance per Default gleich "null".
- * private Eigenschaften werden definiert.
+ * private Eigenschaften werden definiert:
+ * - $instance sorgt dafür, dass eine Instanz des selben Objekts aufgerufen wird und nicht mehrmal versucht wird sich mit der DB zu verbinden.
+ * - $_pdo
+ * - $_query
+ * - $_error
+ * - $_results
+ * - $_count
  * Zum Einsatz kommt das sogenannte Singleton Pattern.
- * $instance sorgt dafür, dass eine Instanz des selben Objekts aufgerufen wird und nicht mehrmal versucht wird sich mit der DB zu verbinden.
+ * 
  */
 class DB {
     private static $_instance = null;
