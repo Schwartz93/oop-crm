@@ -25,7 +25,8 @@ class DB {
             $_count = 0;
 
     /**
-     * __construct => Magische Methode: Wird beim instanzieren des Objekts automatisch ausgeführt. Übergebene Parameter werden beim erzeugen des Objekts eingefügt. 
+     * __construct => Magische Methode: Wird beim instanzieren des Objekts automatisch ausgeführt. Übergebene Parameter werden beim erzeugen des Objekts eingefügt.
+     * 
      * Try/Catch: Im try Block wird getestet. Catch wirft einen Fehler sofern vorhanden. 
      * die(); => Beendet das Statement im Falle eines Fehlers und gibt mit der "getMessage()" - Methode eine Fehlermeldung aus.
      * Alternativ im Try Block: Mit: throw new Exception("Eine beliebige Error Message"); => Error Nachricht selbst erzeugen.
@@ -42,8 +43,9 @@ class DB {
         }
     }
     /**
+     * Methode getInstance()
      * 
-     * getInstance() => Checkt ob das Objekt bereits durch die Datenbankverbindung instanziert wurde.
+     * Checkt ob das Objekt bereits durch die Datenbankverbindung instanziert wurde.
      * Falls nicht: Wird das Objekt instanziert.
      * "self::" => Spricht statische Eigenschaften innerhalb der Klassendefinition an. Vergleichbar mit "$this->".
      * mit self::$_instance = new DB(); wird das Objekt instanziert falls noch nicht geschehen. (Soll verhindern, dass die Db Verbindung mehrmals hergestellt wird).
@@ -59,7 +61,7 @@ class DB {
     }
 
     /**
-     * Query Methode:
+     * Methode query()
      * 
      * Die Funktion "query" erwartet ein $sql Statement, und ein Array von Parametern falls Verwendung dafür besteht.
      * 
@@ -102,9 +104,8 @@ class DB {
         return $this;
     }
 
-    /**
-     * 
-     * action Methode:
+    /** 
+     * Methode action()
      * 
      * Erlaubt es eine bestimmte Aktion wie zb: delete oder select auszuführen.
      * Parameter: $action die ausgeführt werden soll. $table in welcher Tabelle die Aktion gesetzt werden soll. "$where = array()" => "Ersetzt" die WHERE angabe im SQL Statement.
@@ -138,8 +139,7 @@ class DB {
     }
 
     /**
-     * 
-     * Funktion get()
+     * Methode get()
      * 
      * Erhält die Parameter $table und $where um das sql Statement bilden zu können.
      * Gibt mit return das Ergebnis der action Funktion zurück.
@@ -154,8 +154,7 @@ class DB {
     }
 
     /**
-     * 
-     * Funktion delete()
+     * Methode delete()
      * 
      * Erhält die Parameter $table und $where um das sql Statement bilden zu können.
      * Gibt mit return das Ergebnis der action Funktion zurück.
@@ -168,8 +167,7 @@ class DB {
     }
 
     /**
-     * 
-     * Funktion insert()
+     * Methode insert()
      * 
      * Erwartet als Parameter $table und $fields als array.
      * 
@@ -208,8 +206,7 @@ class DB {
     }
 
     /**
-     * 
-     * Funktion update()
+     * Methode update()
      * 
      * Parameter die erwartet werden sind die gleichen wie bei der insert Funktion mit ausnahme der "$id".
      * 
@@ -243,7 +240,7 @@ class DB {
     }
 
     /**
-     * Funktion results()
+     * Methode results()
      * 
      * Gibt results zurück
      */
@@ -252,7 +249,7 @@ class DB {
         return $this->_results;
     }
     /**
-     * Funktion first()
+     * Methode first()
      * 
      * Gibt den ersten gefundenen Eintrag als result zurück
      */
@@ -262,7 +259,7 @@ class DB {
     }
 
     /**
-     * Funktion error()
+     * Methode error()
      * 
      * Gibt einen Error zurück.
      */
@@ -272,7 +269,7 @@ class DB {
     }
 
     /**
-     * Funktion count()
+     * Methode count()
      * 
      * Gibt die Anzahl der gefundenen Ergebnisse zurück.
      * 
