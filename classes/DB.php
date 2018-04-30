@@ -4,13 +4,16 @@
  * 
  * Statische Eigenschaft werden gesetzt: $instance per Default gleich "null".
  * private Eigenschaften werden definiert:
- * - $instance sorgt dafür, dass eine Instanz des selben Objekts aufgerufen wird und nicht mehrmal versucht wird sich mit der DB zu verbinden.
- * - $_pdo
- * - $_query
- * - $_error
- * - $_results
- * - $_count
  * Zum Einsatz kommt das sogenannte Singleton Pattern.
+ * Underscore in den Eigenschaftsnamen um klar zu machen dass sie "private" sind.
+ * 
+ * - $instance: Eine Art "Hauptklasse" die dafür sorgt, dass eine Instanz des selben Objekts aufgerufen wird und nicht mehrmals versucht wird sich mit der DB zu verbinden.
+ * - $_pdo: Wird ein PDO Objekt instanziert, wird es hier gespeichert.
+ * - $_query: Letzte ausgeführte Query.
+ * - $_error: Vorhandensein eines Errors. Zb falls die Query fehlschlägt.
+ * - $_results: Speichert das Resultset => (SELECT * FROM users WHERE username = "alex";)
+ * - $_count: Anzahl der Ergebnisse.
+ * 
  * 
  */
 class DB {
@@ -21,6 +24,15 @@ class DB {
             $_results,
             $_count = 0;
 
+    /**
+     * __construct => Magische Methode: Wird beim instanzieren des Objekts automatisch ausgeführt. Übergebene Parameter werden beim erzeugen des Objekts eingefügt. 
+     * Try/Catch: Im try Block wird getestet. Catch wirft einen Fehler sofern vorhanden. 
+     * die(); => Beendet das Statement im Falle eines Fehlers und gibt mit der "getMessage()" - Methode eine Fehlermeldung aus.
+     * Alternativ im Try Block: Mit: throw new Exception("Eine beliebige Error Message"); => Error Nachricht selbst erzeugen.
+     * 
+     * Mit $this->_pdo auf die entsprechende Eigenschaft zugreifen. Ein neues PDO - Objekt instanizieren.
+     * Die Datenbank Eigenschaften mit der in "config.php" erstellten statischen Methode "get()" eintragen.
+     */
     private function __construct() {
         try {
             $this->_pdo = new PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'), Config::get('mysql/username'), Config::get('mysql/password'));
