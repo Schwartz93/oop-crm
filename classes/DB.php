@@ -68,6 +68,7 @@ class DB {
      * Das PDO prepare() Statement, bereitet ein SQL Statement vor und kann ein oder mehrere "?" Parameter erhalten die innerhalb des SQL Statements für diverse Werte stehen.
      * Ist das Ergebnis der if- Abfrage true, sprich das verwendete SQL Statement wurde erfolgreich vorbereitet, wird mit count() gecheckt ob das $params array werte enthält bzw werden diese gezählt.
      * Mit Hilfe der foreach Schleife werden die Werte des Arrays $params als $param gespeichert bzw durchlaufen. Die PDO Methode "bindValue()" bindet einen Wert an einen Parameter. Hier die Variable $x die als Counter genutzt wird.
+     * Für jeden Durchlauf steht $x als Platzhalter für die Position an der "?" in dem SQL Statement ersetzt werden sollen. Nach jedem Durchlauf wird $x um 1 erhöht solange Werte im $params array vorhanden sind.
      */
 
     public function query($sql, $params = array()) {
