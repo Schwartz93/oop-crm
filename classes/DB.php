@@ -33,6 +33,7 @@ class DB {
      * Mit $this->_pdo auf die entsprechende Eigenschaft zugreifen. Ein neues PDO - Objekt instanizieren.
      * Die Datenbank Eigenschaften mit der in "config.php" erstellten statischen Methode "get()" eintragen.
      */
+
     private function __construct() {
         try {
             $this->_pdo = new PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'), Config::get('mysql/username'), Config::get('mysql/password'));
@@ -40,13 +41,34 @@ class DB {
             die($e->getMessage());
         }
     }
-
+    /**
+     * 
+     * getInstance() => Checkt ob das Objekt bereits durch die Datenbankverbindung instanziert wurde.
+     * Falls nicht: Wird das Objekt instanziert.
+     * "self::" => Spricht statische Eigenschaften innerhalb der Klassendefinition an. Vergleichbar mit "$this->".
+     * mit self::$_instance = new DB(); wird das Objekt instanziert falls noch nicht geschehen. (Soll verhindern, dass die Db Verbindung mehrmals hergestellt wird).
+     * Beim instanzieren wird die constructor Methode "aktiviert", die DB Verbindung hergestellt und anschließend in $_pdo gespeichert.
+     * Anschließend per return zurückgegeben.
+     * 
+     */
     public static function getInstance() {
         if (!isset(self::$_instance)) {
             self::$_instance = new DB();
         }
         return self::$_instance;
     }
+
+    /**
+     * Query Methode:
+     * 
+     * Die Funktion "query" erwartet ein $sql Statement, und ein Array von Parametern falls Verwendung dafür besteht.
+     * 
+     * _error wird auf "false" gesetzt (reset) um zu verhindern das bei setzen mehrerer queries eine error Meldung für die vorhergehende Query am falschen Platz erscheint. 
+     * Innerhalb der ersten if-Abfrage wird geprüft ob die DB Verbindung new PDO => $_pdo, erfolgreich hergestellt wurde.
+     * Das PDO prepare() Statement, bereitet ein SQL Statement vor und kann ein oder mehrere "?" Parameter erhalten die innerhalb des SQL Statements für diverse Werte stehen.
+     * Ist das Ergebnis der if- Abfrage true, sprich das verwendete SQL Statement wurde erfolgreich vorbereitet, wird mit count() gecheckt ob das $params array werte enthält bzw werden diese gezählt.
+     * Mit Hilfe der foreach Schleife werden die Werte des Arrays $params als $param gespeichert bzw durchlaufen. Die PDO Methode "bindValue()" bindet einen Wert an einen Parameter. Hier die Variable $x die als Counter genutzt wird.
+     */
 
     public function query($sql, $params = array()) {
         $this->_error = false;
