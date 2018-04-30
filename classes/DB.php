@@ -66,9 +66,19 @@ class DB {
      * _error wird auf "false" gesetzt (reset) um zu verhindern das bei setzen mehrerer queries eine error Meldung für die vorhergehende Query am falschen Platz erscheint. 
      * Innerhalb der ersten if-Abfrage wird geprüft ob die DB Verbindung new PDO => $_pdo, erfolgreich hergestellt wurde.
      * Das PDO prepare() Statement, bereitet ein SQL Statement vor und kann ein oder mehrere "?" Parameter erhalten die innerhalb des SQL Statements für diverse Werte stehen.
-     * Ist das Ergebnis der if- Abfrage true, sprich das verwendete SQL Statement wurde erfolgreich vorbereitet, wird mit count() gecheckt ob das $params array werte enthält bzw werden diese gezählt.
+     * Ist das Ergebnis der if- Abfrage true, sprich das verwendete SQL Statement wurde erfolgreich vorbereitet, werden mit count() die Werte im Array gezählt. Solange die Anzahl nicht 0 ist, läuft die foreach Schleife.
      * Mit Hilfe der foreach Schleife werden die Werte des Arrays $params als $param gespeichert bzw durchlaufen. Die PDO Methode "bindValue()" bindet einen Wert an einen Parameter. Hier die Variable $x die als Counter genutzt wird.
      * Für jeden Durchlauf steht $x als Platzhalter für die Position an der "?" in dem SQL Statement ersetzt werden sollen. Nach jedem Durchlauf wird $x um 1 erhöht solange Werte im $params array vorhanden sind.
+     * 
+     * Das in $_query gespeicherte "prepared" SQL Statement wird mit der PDO Methode "execute()" ausgeführt.
+     * In $_results werden die Ergebnisse mit der PDO Methode "fetchAll(PDO::FETCH_OBJ)" als Objekt zurückgegeben. Ohne PDO::FETCH_OBJ, würde es sich um ein Array handeln.
+     * $_count erhält durch "rowCount()" die Anzahl die durch das letzte SQL Statement "beinflussten" Reihen.
+     * 
+     * Schlägt execute() fehl, wird der eigenschaft $_error der wert true zugewiesen da ein Fehler vorhanden ist.
+     * 
+     * return $this. Gibt das verwendete Objekt zurück um damit weiterarbeiten zu können.
+     * 
+     * Beispielanwendung: DB::getInstance()->query("SELECT username FROM users WHERE username = ?", array('alex'));
      */
 
     public function query($sql, $params = array()) {
@@ -92,6 +102,22 @@ class DB {
         return $this;
     }
 
+    /**
+     * 
+     * action Methode:
+     * 
+     * Erlaubt es eine bestimmte Aktion wie zb: delete oder select auszuführen.
+     * Parameter: $action die ausgeführt werden soll. $table in welcher Tabelle die Aktion gesetzt werden soll. "$where = array()" => "Ersetzt" die WHERE angabe im SQL Statement.
+     * Mit count überprüfen ob das "$where-array" vollständig ist bzw drei Werte enrhalten hat. Ist das nicht der Fall wird false zurückgegeben und die Aktion beendet.
+     * In einem $operators array werden mögliche Operatoren gespeichert.
+     * $field, $operator und $value werden die drei Werte zugewiesen.
+     * 
+     * Mit in_array überprüfen ob der $operator im $operators array enthalten ist.
+     * Ist das der Fall, wird eine $sql Variable mit einem SQL Statement befüllt. Die spezifischen Informationen werden durch die Parameter ersetzt und sind nun flexibel. 
+     * 
+     * Anschließend wird eine Query abgesetzt und getestet ob diese einen Fehler zurückgibt. Falls kein error vorhanden ist, wird das Objekt mit return zurückgegeben.
+     */
+
     public function action($action, $table, $where = array()) {
         if (count($where) === 3) {
             $operators = array('=', '>', '<', '>=', '<=');
@@ -111,13 +137,41 @@ class DB {
         return false;
     }
 
+    /**
+     * 
+     * Funktion get()
+     * 
+     * Erhält die Parameter $table und $where um das sql Statement bilden zu können.
+     * Gibt mit return das Ergebnis der action Funktion zurück.
+     * 'SELECT *' ist hier das einzige konstante Element.
+     * 
+     * ACHTUNG!: GIBT ALLE GEFUNDENEN EINTRÄGE ZURÜCK => *
+     * 
+     */
+
     public function get($table, $where) {
         return $this->action('SELECT *', $table, $where);
     }
 
+    /**
+     * 
+     * Funktion delete()
+     * 
+     * Erhält die Parameter $table und $where um das sql Statement bilden zu können.
+     * Gibt mit return das Ergebnis der action Funktion zurück.
+     * 'DELETE' ist hier das einzige konstante Element.
+     * 
+     */
+
     public function delete($table, $where) {
         return $this->action('DELETE', $table, $where);
     }
+
+    /**
+     * 
+     * 
+     * 
+     */
 
     public function insert($table, $fields = array()) {
         $keys = array_keys($fields);
@@ -140,6 +194,12 @@ class DB {
 
         return false;
     }
+
+    /**
+     * 
+     * 
+     * 
+     */
 
     public function update($table, $id, $fields) {
         $set = '';
@@ -172,6 +232,12 @@ class DB {
     public function error() {
         return $this->_error;
     }
+
+    /**
+     * 
+     * Gibt die Anzahl der gefundenen Ergebnisse zurück 
+     * 
+     */
 
     public function count() {
         return $this->_count;
