@@ -169,8 +169,20 @@ class DB {
 
     /**
      * 
+     * Funktion insert()
      * 
+     * Erwartet als Parameter $table und $fields als array.
      * 
+     * MIt array_keys() werden die keys eines Arrays zurückgegeben und anschließend in $keys gespeichert.
+     * $values wird auf Leestring gesetzt.
+     * $x => Counter
+     * Ist $x nach dem Schleifendurchlauf kleiner als die Anzahl der Array Elemente. Ist das der Fall sind Elemente vorhanden und müssen durch ein Komma getrennt werden.
+     * Ist $x kleiner als die Zahl der Elemente, so hat die Schleife die maximal benötigte Anzahl an Durchläufen hinter sich und kann beendet werden. Es ist kein Komma mehr mnötig.
+     * 
+     * In $sql wird das SQL Statement gespeichert. "?" und "," werden in der foreach Schleife automatisch und je nach Anzahl der Elemente eingefügt.
+     * Mit "implode" werden die Array Elemente mit einem Komma und einem "Backtick" getrennt ausgegeben.
+     * 
+     * Mit einem if Konstrukt wird überprüft ob ein Fehler in der Query vorliegt. Ist das der Fall wird $_error auf true gesetzt. 
      */
 
     public function insert($table, $fields = array()) {
@@ -197,8 +209,17 @@ class DB {
 
     /**
      * 
+     * Funktion update()
      * 
+     * Parameter die erwartet werden sind die gleichen wie bei der insert Funktion mit ausnahme der "$id".
      * 
+     * $set wird auf Leerstring gesetzt.
+     * $x als Counter wird auf 1 gesetzt.
+     * 
+     * Eine foreach Schleife gibt das $fields Array aus. Sowohl die keys als auch die values!
+     * $name steht hier für einen key im Array. Es wird an $set "{$name} = ?" angehängt. Ergebnis als Ausgabe im SQL Stil: ..."SET password = ?" .
+     * 
+     * Der Rest der Funktion ist identisch zu insert().
      */
 
     public function update($table, $id, $fields) {
@@ -221,21 +242,39 @@ class DB {
         return false;
     }
 
+    /**
+     * Funktion results()
+     * 
+     * Gibt results zurück
+     */
+
     public function results() {
         return $this->_results;
     }
+    /**
+     * Funktion first()
+     * 
+     * Gibt den ersten gefundenen Eintrag als result zurück
+     */
 
     public function first() {
         return $this->results()[0];
     }
+
+    /**
+     * Funktion error()
+     * 
+     * Gibt einen Error zurück.
+     */
 
     public function error() {
         return $this->_error;
     }
 
     /**
+     * Funktion count()
      * 
-     * Gibt die Anzahl der gefundenen Ergebnisse zurück 
+     * Gibt die Anzahl der gefundenen Ergebnisse zurück.
      * 
      */
 
