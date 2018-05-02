@@ -83,6 +83,24 @@ class User {
         }
     }
 
+    /**
+     * Methode find()
+     * 
+     * Erwartet einen user (Per default gleich "null")
+     * Mit if wird geprüft ob ein user vorhanden ist. 
+     * 
+     * $field checkt ob $user eine Nummer ist. Falls ja wird => 'id' gesetzt. Falls nicht => 'username'.
+     * $data entspricht den Daten die aus der 'users' Tabelle zurückkommen. 
+     * 
+     * Beispiel: SELECT * FROM users WHERE $field (entspricht hier entweder 'id' oder 'username') = $user.
+     *  
+     * Mit dem zweiten if und count() überprüfen ob Daten vorhanden sind. 
+     * Das erste Ergebnis dieser Daten wird in der Eigenschaft $data gespeichert.
+     * true wird zurückgegeben
+     * 
+     * false wird zurückgegeben falls $user nicht existiert.
+     */
+
     public function find($user = null) {
         if($user) {
             $field = (is_numeric($user)) ? 'id' : 'username';
@@ -102,6 +120,9 @@ class User {
      * Erwartet username und password. (Per default gleich "null") 
      * 
      * 
+     * 
+     * Falls $user existiert:
+     *  
      */
 
     public function login($username = null, $password = null, $remember = false) {
