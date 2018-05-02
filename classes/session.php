@@ -16,7 +16,6 @@ class Session {
     }
 
     /**
-     * 
      * Statische Methode put()
      * 
      * Nimmt einen Session Namen und einen Session Wert auf.

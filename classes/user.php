@@ -176,7 +176,7 @@ class User {
      * 
      * 
      */
-    
+
     public function hasPermission($key) {
         $group = $this->_db->get('groups', array('id', '=', $this->data()->group_id));
         
@@ -200,7 +200,10 @@ class User {
     }
 
     /**
+     * Method logout()
      * 
+     * Session wird gelöscht.
+     * Cookies werden gelöscht.
      * 
      */
 
