@@ -18,7 +18,7 @@
                 $remember = (Input::get('remember') === 'on') ? true : false;
                 // Mit Hilfe der login() Methode werden die Userdaten in $login gespeichert. 
                 $login = $user->login(Input::get('username'), Input::get('password'), $remember);
-
+                // Ist der User eingelogged => Redirect. Andernfalls => Error Message
                 if($login) {
                     Redirect::to('index.php');
                 } else {

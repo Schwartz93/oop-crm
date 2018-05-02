@@ -25,8 +25,17 @@ class User {
      * 
      * Erzeugt ein/e neues DB Objekt/Instanz 
      * 
+     * Sowohl Sessiondaten als auch Cookies werden in entsprechenden Eigenschaften gespeichert.
      * 
+     * Falls User nicht definiert wurde:
+     * Überprüft wird ob Session existiert.
+     * $user wird dem Session Namen gleichgesetzt.
      * 
+     * $user wird mit find() in der Db gesucht.
+     * Ist das Ergebnis true, wird die Eigenschaft $isLoggedIn auch auf true gesetzt.
+     * 
+     * Falls User definiert wurde:
+     * User wird mit find() "gesucht".
      */
 
     public function __construct($user = null){
@@ -122,6 +131,10 @@ class User {
      * 
      * 
      * Falls $user existiert:
+     *  Wird überprüft ob der Passwort Hash in der DB dem Passwort Hash und dem Salt entspricht das aus dem eingegebenen Passwort entsteht.
+     *  Ist das der Fall wird eine Session erstellt und die User id gespeichert.
+     * 
+     * 
      *  
      */
 
@@ -159,6 +172,11 @@ class User {
         return false;
     }
 
+    /**
+     * 
+     * 
+     */
+    
     public function hasPermission($key) {
         $group = $this->_db->get('groups', array('id', '=', $this->data()->group_id));
         
@@ -172,9 +190,19 @@ class User {
         return false;
     }
 
+    /**
+     * 
+     * 
+     */
+
     public function exists() {
         return (!empty($this->_data)) ? true : false;
     }
+
+    /**
+     * 
+     * 
+     */
 
     public function logout() {
 
@@ -184,9 +212,21 @@ class User {
         Cookie::delete($this->_cookieName);
     }
 
+    /**
+     * Methode data()
+     * 
+     * Gibt $_data zurück
+     */
+
     public function data() {
        return $this->_data; 
     }
+
+    /**
+     * Methode isLoggedIn()
+     * 
+     * Gibt $_isLoggedIn zurück
+     */
 
     public function isLoggedIn() {
         return $this->_isLoggedIn;
