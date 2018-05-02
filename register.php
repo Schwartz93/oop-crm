@@ -28,13 +28,13 @@ require_once 'core/init.php';
                     'max' => 50
                 )
             ));
-
+            // Mit passed() überprüfen ob die Validierung erfolgreich war. Falls ja, neues User Objekt instanzieren und $salt erstellen.
             if($validation->passed()) {
                 $user = new User();
 
                 $salt = Hash::salt(32);
                 
-                
+                // Das Objekt $user verwendet die Methode create (Siehe user.php!) um das assoziative. Array mit den Userdaten zu füllen.
                 try {
                     $user->create(array(
                         'username' => Input::get('username'),
@@ -44,10 +44,11 @@ require_once 'core/init.php';
                         'joined' => date('Y-m-d H:i:s'),
                         'group_id' => 1
                     ));
-                
+                    // Nachricht "flash" wenn erfolgreich registriert wurde. Redirect zu index.php
                     Session::flash('home', 'You have been registered and can now log in!');
                     Redirect::to('index.php');
 
+                //Exception Message falls Registrierung fehl schlägt   
                 } catch (Exception $e) {
                     die($e->getMessage());
                 }

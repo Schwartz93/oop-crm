@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * Klasse User
+ * 
+ * Ermöglicht die Arbeit mit User Daten aus der DB.
+ * 
+ * Eigenschaften: $_db,
+                  $_data,
+                  $_sessionName,
+                  $_cookieName,
+                  $_isLoggedIn;
+ * 
+ */
 class User {
     private $_db,
             $_data,
@@ -7,6 +20,14 @@ class User {
             $_isLoggedIn;
            
 
+    /**
+     * Methode __construct
+     * 
+     * Erzeugt ein/e neues DB Objekt/Instanz 
+     * 
+     * 
+     * 
+     */
 
     public function __construct($user = null){
         $this->_db = DB::getInstance();
@@ -42,6 +63,19 @@ class User {
             
         }
     }
+
+    /**
+     * Methode create()
+     * 
+     * Erzeugt einen Datensatz in der users Tabelle.
+     * 
+     * Erwartet ein Array als Parameter.
+     * Wirft eine Exception Message falls die insert() Methode fehlschägt.
+     * 
+     * Erklärung zur insert() Methode in DB.php!
+     * 
+     * 
+     */
 
     public function create($fields = array()) {
         if(!$this->_db->insert('users', $fields)) {
