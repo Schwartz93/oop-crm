@@ -131,11 +131,18 @@ class User {
      * 
      * 
      * Falls $user existiert:
-     *  Wird überprüft ob der Passwort Hash in der DB dem Passwort Hash und dem Salt entspricht das aus dem eingegebenen Passwort entsteht.
-     *  Ist das der Fall wird eine Session erstellt und die User id gespeichert.
+     * Wird überprüft ob der Passwort Hash in der DB dem Passwort Hash und dem Salt entspricht das aus dem eingegebenen Passwort entsteht.
+     * Ist das der Fall wird eine Session erstellt und die User id gespeichert.
      * 
+     * Wird "remember" genutzt, prüft ein hash Check ob ein hash gesetzt wurde.
+     * Wenn kein Hash vorhanden ist, werden user_id und hash in die Db eingetragen
      * 
+     * Ist ein Hash vorhanden wird dieser in der Variable $hash gespeichert.
      *  
+     * Cookie wird gesetzt mit dem cookie Namen aus config.php
+     * Hash => Wert
+     * Config::get('remember/cookie_expiry') => expiry
+     * 
      */
 
     public function login($username = null, $password = null, $remember = false) {

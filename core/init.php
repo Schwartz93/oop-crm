@@ -37,15 +37,13 @@
 
     require_once 'functions/sanitize.php';
 
-    /**
-     * 
-     * 
-     */
-    
+    // Checkt ob ein Cookie existiert, bzw ein User eingelogged ist.    
     if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {
+        // Falls ja wird in der Variable $hash das cookie gespeichert.
         $hash = Cookie::get(Config::get('remember/cookie_name'));
+        // hashCheck Durchsucht die DB nach einem Hash der ident mit dem ist der gerade gesetzt ist.
         $hashCheck = DB::getInstance()->get('users_session', array('hash', '=', $hash));
-
+        // Falls der Hash vorhanden ist wird ein User Objekt aufgerufen und der user mit einer bestimmten id zugewiesen => login Möglichkeit.
         if($hashCheck->count()) {
             $user = new User($hashCheck->first()->user_id);
             $user->login();
