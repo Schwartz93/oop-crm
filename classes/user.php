@@ -96,6 +96,14 @@ class User {
         return false;
     }
 
+    /**
+     * Statische Methode login()
+     * 
+     * Erwartet username und password. (Per default gleich "null") 
+     * 
+     * 
+     */
+
     public function login($username = null, $password = null, $remember = false) {
         
         if(!$username && !$password && $this->exists()) {

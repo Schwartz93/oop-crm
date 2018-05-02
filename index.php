@@ -1,6 +1,7 @@
 <?php 
     require_once 'core/init.php';
 
+  // Ausgabe der flash message wenn die Session existiert.
    if(Session::exists('home')) {
         echo '<p>' . Session::flash('home') . '</p>';
    }

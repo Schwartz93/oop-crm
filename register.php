@@ -48,11 +48,11 @@ require_once 'core/init.php';
                     Session::flash('home', 'You have been registered and can now log in!');
                     Redirect::to('index.php');
 
-                //Exception Message falls Registrierung fehl schlägt   
+                //Exception Message falls Registrierung fehl schlägt.  
                 } catch (Exception $e) {
                     die($e->getMessage());
                 }
-
+            // War die Validierung nicht erfolgreich werden entsprechen Error messages ausgegeben.
             } else {
                 foreach($validation->errors() as $error) {
                     echo $error, '<br>';
