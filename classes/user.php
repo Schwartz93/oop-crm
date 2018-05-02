@@ -195,7 +195,9 @@ class User {
      * 
      * $group erhählt die group_id aus der DB für den aktuellen User.
      * Hat $group einen Wert wird das Json File in der DB mit json_decode als array zurückgegeben.
+     * Andernfalls => return false.
      * 
+     * Enthält dieses array den $key welcher als Parameter mitgegeben wurde => return true. 
      * 
      */
 
