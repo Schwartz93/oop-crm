@@ -1,9 +1,12 @@
 <?php 
 require_once 'core/init.php';
-
+    // Mit exists() auf den Erhalt von POST bzw GET Daten überprüfen.
     if(Input::exists()) {
+
         if(Token::check(Input::get('token'))) {
+            // $validate => Neues Objekt "Validate"
             $validate = new Validate();
+            // $validation => Objekt $validate => check() überprüft POST und die "Rules" in einem Array.
             $validation = $validate->check($_POST, array(
                 'username' => array(
                     'required' => true,
