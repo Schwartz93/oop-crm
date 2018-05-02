@@ -14,7 +14,7 @@
             // Wenn die Validierung erfolgreich ist, wird ein User Objekt instanziert und eingelogged.
             if($validation->passed()) {
                 $user = new User();
-                //
+                // $remember enthält den wert true oder false, je nachdem ob man die "remember me" checkbox aktiviert hat oder nicht.
                 $remember = (Input::get('remember') === 'on') ? true : false;
                 // Mit Hilfe der login() Methode werden die Userdaten in $login gespeichert. 
                 $login = $user->login(Input::get('username'), Input::get('password'), $remember);
