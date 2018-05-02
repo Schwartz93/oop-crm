@@ -1,15 +1,15 @@
 <?php
 require_once 'core/init.php';
-
+// Neues Objekt wird instanziert
 $user = new User();
-
+// Check ob ein User ist eingelogged. Falls nicht => Redirect zu index.php
 if(!$user->isLoggedIn()) {
     Redirect::to('index.php');
 }
-
+// Check ob der Token korrekt ist.
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
-        
+        // Validation Klasse checkt ob das eingegebene Valide ist (Vergleichbar mit register.php)
         $validate = new Validate();
         $validation = $validate->check($_POST, array(
             'name' => array(
@@ -18,21 +18,21 @@ if(Input::exists()) {
                 'max' => 50
             )
         ));
-
+        // Check ob Validierung erfolgreich war.
         if($validation->passed()) {
-
+            // Versuch zu updaten
             try {
                 $user->update(array(
                     'name' => Input::get('name')
                 ));
-
+                // Wenn die Update Funktion erfolgreich war => Flash mit einer Nachricht und Redirect zu index.php
                 Session::flash('home', 'Your details have been updated.');
                 Redirect::to('index.php');
-
+            // Exception Error falls der Versuch zu updaten fehl schlägt.
             } catch(Exception $e) {
                 die($e->getMessage());
             }
-
+        // Error Ausgabe falls Validierung fehl schlägt
         } else {
             foreach($validation->errors() as $error) {
                 echo $error, '<br>';

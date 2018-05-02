@@ -1,15 +1,15 @@
 <?php
 require_once 'core/init.php';
-
+// Neues Objekt wird instanziert
 $user = new User();
-
+// Check ob ein User ist eingelogged. Falls nicht => Redirect zu index.php
 if(!$user->isLoggedIn()) {
     Redirect::to('index.php');
 }
-
+// Check ob der Token korrekt ist.
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
-        
+        // Validation Klasse checkt ob das eingegebene Valide ist (Vergleichbar mit register.php)
         $validate = new Validate();
         $validation = $validate->check($_POST, array(
             'password_current' => array(
@@ -26,22 +26,22 @@ if(Input::exists()) {
                 'matches' => 'password_new'
             )
         ));
-
+        // Check ob Validierung erfolgreich war.
         if($validation->passed()) {
-
+            // Erstellt einen Hash aus dem aktuellen passwort und dem salt. Ist es nicht gleich dem eingegebenen passwort -> Nachricht dass das Passwort falsch ist
             if(Hash::make(Input::get('password_current'), $user->data()->salt) !== $user->data()->password) {
                 echo 'Your current password is wrong.';
-            } else {
+            } else { // Stimmen die Passwörter überein wird ein neuer salt generiert und mit dem neuen passwort in der DB aktualisiert
                 $salt = Hash::salt(32);
                 $user->update(array(
                     'password' => Hash::make(Input::get('password_new'), $salt),
                     'salt' => $salt
                 ));
-
+                // Flash nachricht wenn der updateprozess erfolgreich war und redirect zu index.php
                 Session::flash('home', 'Your password has been changed.');
                 Redirect::to('index.php');
             }
-
+        // Error Ausgabe falls Validierung fehl schlägt
         } else {
             foreach($validation->errors() as $error) {
                 echo $error, '<br>';

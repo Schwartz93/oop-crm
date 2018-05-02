@@ -19,11 +19,10 @@ class User {
             $_cookieName,
             $_isLoggedIn;
            
-
     /**
      * Methode __construct
      * 
-     * Erzeugt ein/e neues DB Objekt/Instanz 
+     * Erzeugt eine neue Instanz 
      * 
      * Sowohl Sessiondaten als auch Cookies werden in entsprechenden Eigenschaften gespeichert.
      * 
@@ -61,6 +60,18 @@ class User {
 
     }
 
+    /**
+     * Methode update()
+     * 
+     * Updated Daten in der DB.
+     * 
+     * Mit if prüfen ob eine id vorhanden ist und der User eingelogged ist
+     * Falls das der Fall ist, wird $id dem aktuellen Wert zugeordnet den die User id hat.
+     * 
+     * Das zweite if checkt ob die _db->update() Methode erfolgreich war. 
+     * Falls nicht => Exception Message.
+     */
+
     public function update($fields = array(), $id = null) {
 
         if(!$id && $this->isLoggedIn()) {
@@ -68,7 +79,7 @@ class User {
         }
     
         if(!$this->_db->update('users', $id, $fields)) {
-            throw new Exception("There was a problem updating");
+            throw new Exception("There was a problem updating your Information");
             
         }
     }
@@ -180,6 +191,10 @@ class User {
     }
 
     /**
+     * Methode hasPermission()
+     * 
+     * $group erhählt die group_id aus der DB für den aktuellen User.
+     * Hat $group einen Wert wird das Json File in der DB mit json_decode als array zurückgegeben.
      * 
      * 
      */
@@ -198,7 +213,9 @@ class User {
     }
 
     /**
+     * Methode exists()
      * 
+     * Checkt ob die Daten im data Array enthalten sind.
      * 
      */
 
@@ -208,6 +225,8 @@ class User {
 
     /**
      * Method logout()
+     * 
+     * Hash wird zurückgesetzt bzw gelöscht.
      * 
      * Session wird gelöscht.
      * Cookies werden gelöscht.
