@@ -46,7 +46,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
                     <a href="mark.php?as=done&item=<?php echo $item['id']?>" class="done-button">Mark as done</a>
                         <?php elseif(!$item['notdone']): ?>
                     <a href="mark.php?as=notdone&item=<?php echo $item['id']?>" class="not-done-button">UNDO</a>
-                    <a href="mark.php?as=delete&item=<?php echo $item['id']?>" class="delete">Delete this Task</a>
+                    <a href="mark.php?as=delete&item=<?php echo $item['id']?>" class="delete-button">Delete this Task</a>
                         <?php endif; ?>
                 </li>
             <?php endforeach; ?>
