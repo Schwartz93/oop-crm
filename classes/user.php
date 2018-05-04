@@ -5,11 +5,7 @@
  * 
  * Ermöglicht die Arbeit mit User Daten aus der DB.
  * 
- * Eigenschaften: $_db,
-                  $_data,
-                  $_sessionName,
-                  $_cookieName,
-                  $_isLoggedIn;
+ * 
  * 
  */
 class User {

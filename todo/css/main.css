@@ -46,6 +46,10 @@ a {
     text-decoration: line-through;
 }
 
+.items .item.done {
+    text-decoration: line-through;
+}
+
 .items li,
 .item-add .input {
     border: 0;
@@ -60,16 +64,25 @@ a {
 .input:focus {
     outline:none;
 }
-/* DONE BUTTON */
+/* (NOT) DONE BUTTON */
 
 .items .done-button {
     display:inline-block;
     font-size: 0.8em;
-    background-color: #d9dfe1;
-    color: 363639;
+    background-color: red;
+    color: #fff;
     padding: 3px 6px;
     border: 0;
-    opacity: 0.4;
+    opacity: 0.8;
+}
+
+.items .not-done-button {
+    display:inline-block;
+    font-size: 0.8em;
+    background-color: green;
+    color: #fff;
+    padding: 3px 6px;
+    border: 0;
 }
 
 /* SUBMIT BUTTON */
