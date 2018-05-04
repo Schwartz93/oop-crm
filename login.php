@@ -51,6 +51,10 @@
         </label>
     </div>
 
+    <div class="field">
+        <a href="register.php"> Need an account? Click Here</a>
+    </div>
+
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
     <input type="submit" value="Log in">
 </form>

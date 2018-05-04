@@ -10,12 +10,13 @@
   // Ist der User eingelogged wird sein Name ausgegeben. Sowie die Möglichkeit zum Ausloggen, Ändern der eignene Daten bzw Ändern des Passworts.
   if($user->isLoggedIn()) {
   ?>  
-        <p>Hello <a href="profile.php?user=<?php echo escape($user->data()->username); ?>"><?php echo escape($user->data()->username); ?></a>!</p>
+      <p>Hello <a href="profile.php?user=<?php echo escape($user->data()->username); ?>"><?php echo escape($user->data()->username); ?></a>!</p>
 
         <ul>
             <li><a href="logout.php">Log out</a></li>
             <li><a href="update.php">Update Details</a></li>
             <li><a href="changepassword.php">Change Password</a></li>
+            <li><a href="todo/index.php">Todo App</a></li>
         </ul>
 
   <?php
