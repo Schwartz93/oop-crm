@@ -8,5 +8,6 @@ define('BASE_URL', 'http://localhost/oop-crm/cms/');
 
 $db = new PDO('mysql:host=127.0.0.1;dbname=crm', 'root', 'root');
 
+require 'functions.php';
 
 ?>
