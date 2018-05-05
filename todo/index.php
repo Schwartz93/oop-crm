@@ -28,6 +28,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
     <title>Todo App</title>
 </head>
 <body>
+    <span class="back"><a href="../index.php">Back To Home</a></span>
     <div class="list">
         <h1 class="header">To do.</h1>
 <!-- Prüfen ob $items einen Wert enthält. Falls ja wird eine Unordered List erstellt mit der Klasse items -->

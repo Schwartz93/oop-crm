@@ -52,7 +52,7 @@ if(Input::exists()) {
 }
 
 ?>
-
+<span class="back"><a href="index.php">Back To Home</a></span>
 <form action="" method="post">
     <div class="field">
         <label for="password_current">Current password</label>
