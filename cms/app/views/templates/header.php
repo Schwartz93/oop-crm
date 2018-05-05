@@ -10,5 +10,15 @@
 </head>
 <body>
     <div class="wrapper">
-        <h1>My CMS</h1>
-    
+    <?php if(basename($_SERVER['PHP_SELF']) === 'page.php'): ?>
+        <h1><a href="admin/list.php">My CMS</a></h1>
+        <span><a href="../../index.php" class="home">HEIMWÄRTS</a></span>
+
+        <?php elseif(basename($_SERVER['PHP_SELF']) === 'list.php'): ?>
+            <h1><a href="">My CMS</a></h1>
+            <span><a href="../../../index.php" class="home">HEIMWÄRTS</a></span>
+
+        <?php elseif(basename($_SERVER['PHP_SELF']) === 'add.php'): ?>
+            <h1><a href="list.php">My CMS</a></h1>
+            <span><a href="../../../index.php" class="home">HEIMWÄRTS</a></span>
+    <?php endif; ?>
