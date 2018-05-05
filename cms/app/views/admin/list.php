@@ -19,7 +19,7 @@
                         <td><?php echo e($page['label']); ?></td>
                         <td><?php echo e($page['title']); ?></td>
                         <td><a href="<?php echo BASE_URL; ?>/page.php?page=<?php echo e($page['slug']); ?>"><?php echo e($page['slug']); ?></a></td>
-                        <td><a href="">Edit</a></td>
+                        <td><a href="<?php echo BASE_URL; ?>/admin/edit.php?id=<?php echo e($page['id']); ?>">Edit</a></td>
                         <td><a href="">Delete</a></td>
                     </tr>
                 <?php endforeach; ?>

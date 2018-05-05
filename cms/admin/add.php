@@ -19,7 +19,7 @@ if(!empty($_POST)) {
         'body'  => $body
     ]);
 
-    header('Location: ' . BASE_URL . '/admin/list.php');
+    header('Location: ' . BASE_URL . 'admin/list.php');
 }
 
 
