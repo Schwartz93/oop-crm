@@ -2,7 +2,7 @@
 
     <?php if(empty($pages)): ?>
         <p>No pages at the moment.</p>
-<?php else: ?>
+    <?php else: ?>
         <table>
             <thead>
                 <tr>
