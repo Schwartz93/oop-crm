@@ -18,6 +18,7 @@
             <li><a href="changepassword.php">Change Password</a></li>
             <li><a href="todo/index.php">Todo App</a></li>
             <li><a href="cms/admin/list.php">CMS/Blog</a></li>
+            <li><a href="poll/index.php">Polls</a></li>
             <li><a href="timetracking/index.php">Timetracker</a></li>
         </ul>
 
