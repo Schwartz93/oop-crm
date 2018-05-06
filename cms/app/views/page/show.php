@@ -1,5 +1,5 @@
 <?php require VIEW_ROOT . '/templates/header.php'; ?>
-
+<!-- Sind keine pages vorhanden, Message ausgeben. Ansonsten werden die Daten entsprechend angezeigt. -->
     <?php if(!$page): ?>
         <p>No page found, sorry.</p>
     <?php else: ?>

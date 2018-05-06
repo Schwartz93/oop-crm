@@ -1,7 +1,7 @@
 <?php require VIEW_ROOT . '/templates/header.php'; ?>
-
+<!-- Ausgabe der "add.php" -->
     <h2>Add page</h2>
-
+<!-- Input weiterleiten zu admin/add.php -->
     <form action="<?php echo BASE_URL; ?>/admin/add.php" method="post" autocomplete="Off">
         <label for="title">
             Title

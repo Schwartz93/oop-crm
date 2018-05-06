@@ -1,7 +1,7 @@
 <?php 
 
 require 'app/start.php';
-
+// Daten für die index.php werden durch eine Query erhalten.
 $pages = $db->query("
     SELECT id, label, slug
     FROM pages
