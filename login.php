@@ -77,7 +77,7 @@
                 </div>
             <div class="form-group">
                 <div class="field">
-                    <a href="register.php"> Need an account? Click Here</a>
+                    <a class="click" href="register.php"> Need an account? Click Here</a>
                 </div>
             </div>  
                 <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
@@ -85,4 +85,11 @@
         </form>
     </div>
 </body>
+<footer>
+    <div class="footer">
+        <div>
+            <p>CRM 2018 Michael Schwartz</p>
+        </div>
+    </div>
+</footer>
 </html>
