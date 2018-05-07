@@ -1,12 +1,19 @@
 <?php
 
 require_once 'app/init.php';
-
+// Prüfen ob POST poll bzw choice befüllt wurde
 if(isset($_POST['poll'], $_POST['choice'])) {
-
+// Falls ja -> speichern in variablen
     $poll   = $_POST['poll'];
     $choice = $_POST['choice'];
-
+// VoteQuery vorbereiten
+// Befüllt werden die user, poll und choice Identifikatoren
+// Placeholder für user poll(id) und choice(id)
+// EXISTS => Anzahl der "row Counts".
+// User id wird "gesucht". Hier aus $_SESSION
+// choice(id) wird gesucht wo id = der post werte bzw poll = post werte.
+// poll(id) wird überprüft ob ein user bereits an einer bestimmten poll teilgenommen hat.
+// Limit 1
     $voteQuery = $db->prepare("
         INSERT INTO polls_answers (user, poll, choice)
             SELECT :user, :poll, :choice
@@ -28,7 +35,7 @@ if(isset($_POST['poll'], $_POST['choice'])) {
                 AND poll = :poll)
             LIMIT 1
     ");
-
+// Statement ausführen
     $voteQuery->execute([
         'user' => $_SESSION['user_id'],
         'poll' => $poll,

@@ -38,7 +38,7 @@ if(!isset($_GET['poll'])) {
 
 // Wurde die Umfrage von einem user beendet?
         $completed = $answerQuery->rowCount() ? true : false;
-
+// ABgewandeltes SQL Statement welches die Antwortverteilung in Prozent ausgeben soll
         if($completed) {
             $answersQuery = $db->prepare("
                 SELECT 
@@ -53,11 +53,12 @@ if(!isset($_GET['poll'])) {
                 WHERE polls_choices.poll = :poll
                 GROUP BY polls_choices.id
             ");
-
+// Statement ausführen und :poll mit der enstprechenden $id befüllen
             $answersQuery->execute([
                     'poll' => $id
             ]);
-
+// $row bekommt die Werte der Query der Reihe nach als Objekts zurück. 
+// Solange $row einen Wert erhält wird dieser in das answers array eingetragen.
             while($row = $answersQuery->fetchObject()) {
                 $answers[] = $row;
             }
@@ -67,7 +68,6 @@ if(!isset($_GET['poll'])) {
 // (inner) Join von der id in "polls" und dem feldern "poll" in "polls_choices".
 // Join passiert dort wo die id von polls jener entspricht die über GET mitgegeben wird bzw in der URL zu jedem Poll steht
 // Weiteres Kriterium ist,dass die momentane zeit (NOW()) innerhalb des starts bzw ends datums steht.
-
             $choicesQuery = $db->prepare("
                 SELECT polls.id, polls_choices.id AS choice_id, polls_choices.name
                 FROM polls
@@ -81,7 +81,7 @@ if(!isset($_GET['poll'])) {
                 'poll' => $id,
             ]);
 // $row bekommt die Werte der Query der Reihe nach als Objekts zurück. 
-//Solange $row einen Wert erhält wird dieser in das choices array eingetragen.
+// Solange $row einen Wert erhält wird dieser in das choices array eingetragen.
             while($row = $choicesQuery->fetchObject()) {
                 $choices[] = $row;
         }
