@@ -9,10 +9,12 @@ body {
 .welcome {
     color: #fff;
     font-size: 1.3em;
+    font-weight: bold;
 }
 
 .date {
     color: #fff;
+    font-weight: bold;
     width: 200px;
     background-color: #353A40;
     padding: 0.5em 1.2em;
@@ -29,6 +31,7 @@ body {
 
 .time {
     color: #fff;
+    font-weight: bold;
     width: 200px;
     background-color: #353A40;
     padding: 0.5em 1.2em;
@@ -52,6 +55,7 @@ body {
 
 .subtitle {
     font-size: 1.2em;
+    font-weight: bold;
     margin-top: 1.5em;
     color: #fff;
     text-transform: uppercase;
