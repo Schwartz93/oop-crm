@@ -90,7 +90,7 @@ if(Input::exists()) {
   </div>
 </nav>
 <div class="date">
-  <div class="today"><?php echo "Today is " . date("d/m/Y") . "<br>"; ?></div>
+  <div class="today"><?php echo "Date: " . date("d/m/Y") . "<br>"; ?></div>
 </div>
 <!-- Javascript für die Ausgabe der Uhrzeit -->
 <script>
