@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="authentication_css/main.css">
     <title>Home</title>
   </head>
-  <body>
+  <body onload="startTime()">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <p class="welcome">Welcome <a class="navbar-brand" href="profile.php?user=<?php echo escape($user->data()->username); ?>"><?php echo escape($user->data()->username); ?></a></p>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,8 +49,25 @@
 <div class="date">
   <div class="today"><?php echo "Today is " . date("d/m/Y") . "<br>"; ?></div>
 </div>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('current_time').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
 <div class="time">
-  <div class="current_time">19:31:32</div>
+  <div id="current_time"></div>
 </div>
 <div class="container">
   <div class="row">
