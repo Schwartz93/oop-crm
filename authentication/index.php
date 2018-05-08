@@ -32,7 +32,7 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#"><img src="../img/house.svg" width="30px" height="30px" alt="home_logo"><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
@@ -42,7 +42,7 @@
       </li>
     </ul>
     <span class="navbar-text">
-        <a href="logout.php"><img width="60px" height="60px" src="img/exit.svg" alt="logout_logo"></a>
+        <a href="logout.php"><img width="60px" height="60px" src="../img/exit.svg" alt="logout_logo"></a>
     </span>
   </div>
 </nav>
@@ -69,28 +69,31 @@ function checkTime(i) {
 <div class="time">
   <div id="current_time"></div>
 </div>
+
+
+<!-- Container für die Features -->
 <div class="container">
   <div class="row">
     <div class="col">
-    <a href="todo/index.php"><img width="130px" height="130px" src="img/todo.png" alt="todo_logo"></a>
+      <a href="../todo/index.php"><img width="130px" height="130px" src="../img/todo.png" alt="todo_logo"></a>
     <div class="subtitle">Todo</div>
     </div>
     <div class="col">
-    <a href="cms/admin/list.php"><img width="130px" height="130px" src="img/blog.svg" alt="blog_logo"></a>
+      <a href="../cms/admin/list.php"><img width="130px" height="130px" src="../img/blog.svg" alt="blog_logo"></a>
     <div class="subtitle">Blog/Cms</div>
     </div>
     <div class="col">
-    <a href="poll/index.php"><img width="130px" height="130px" src="img/elections.svg" alt="poll_logo"></a>
+      <a href="../poll/index.php"><img width="130px" height="130px" src="../img/elections.svg" alt="poll_logo"></a>
     <div class="subtitle">Latest polls</div>
     </div>
   </div>
   <div class="row">
     <div class="col">
-    <a href="update.php"><img width="130px" height="130px" src="img/update.svg" alt="update_logo"></a>
+      <a href="update.php"><img width="130px" height="130px" src="../img/update.svg" alt="update_logo"></a>
     <div class="subtitle">Update your name</div>
   </div>
     <div class="col">
-    <a href="changepassword.php"><img width="130px" height="130px" src="img/password.svg" alt="password_logo"></a>
+      <a href="changepassword.php"><img width="130px" height="130px" src="../img/password.svg" alt="password_logo"></a>
     <div class="subtitle">Change your password</div>
     </div>
   </div>

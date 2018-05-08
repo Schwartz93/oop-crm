@@ -17,7 +17,7 @@ body {
     background-color: #353A40;
     padding: 0.5em 1.2em;
     text-align: center;
-    border-radius: 0px 0px 2px 0px;
+    border-radius: 0px 3px 3px 0px;
     border: 1px solid #fff;
     border-left: 1px solid #353A40;
     float: left;
@@ -33,7 +33,7 @@ body {
     background-color: #353A40;
     padding: 0.5em 1.2em;
     text-align: center;
-    border-radius: 0px 0px 2px 0px;
+    border-radius: 3px 0px 0px 3px;
     border: 1px solid #fff;
     border-right: 1px solid #353A40;
     float: right;
