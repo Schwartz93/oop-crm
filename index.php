@@ -21,7 +21,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="authentication_css/main.css">
-    
     <title>Home</title>
   </head>
   <body>
@@ -43,43 +42,46 @@
       </li>
     </ul>
     <span class="navbar-text">
-        <a href="logout.php"><img width="80px" height="80px" src="img/exit.svg" alt="logout_logo"></a>
+        <a href="logout.php"><img width="60px" height="60px" src="img/exit.svg" alt="logout_logo"></a>
     </span>
   </div>
 </nav>
-     
+<script>$(.'img').hover(makeBigger, returnToOriginalSize);
+
+function makeBigger() {
+    $(this).css({height: '+=10%', width: '+=10%'});
+}
+function returnToOriginalSize() {
+    $(this).css({height: "", width: ""});
+}</script>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <a href="todo/index.php"><img width="130px" height="130px" src="img/todo.png" alt="todo_logo"></a>
+    <div class="subtitle">Todo</div>
+    </div>
+    <div class="col">
+    <a href="cms/admin/list.php"><img width="130px" height="130px" src="img/blog.svg" alt="blog_logo"></a>
+    <div class="subtitle">Blog/Cms</div>
+    </div>
+    <div class="col">
+    <a href="poll/index.php"><img width="130px" height="130px" src="img/elections.svg" alt="poll_logo"></a>
+    <div class="subtitle">Latest polls</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <a href="update.php"><img width="130px" height="130px" src="img/update.svg" alt="update_logo"></a>
+    <div class="subtitle">Update your name</div>
+  </div>
+    <div class="col">
+    <a href="changepassword.php"><img width="130px" height="130px" src="img/password.svg" alt="password_logo"></a>
+    <div class="subtitle">Change your password</div>
+    </div>
+  </div>
+</div>
 
 
-
-
-
-
-
-
-
-
-   <ul>
-          <li><div class="update">
-                <a href="update.php"><img width="100px" height="100px" src="img/update.svg" alt="update_logo">Update</a>
-              </div>
-          </li>
-          <li>
-            <a href="changepassword.php"><img width="100px" height="100px" src="img/password.svg" alt="password_logo">Change password</a>
-          </li>
-          <li>
-            <a href="todo/index.php"><img width="100px" height="100px" src="img/todo.png" alt="todo_logo">Todo list</a>
-          </li>
-          <li>
-            <a href="cms/admin/list.php"><img width="100px" height="100px" src="img/blog.svg" alt="blog_logo">Blog</a>
-          </li>
-          <li>
-            <a href="poll/index.php"><img width="100px" height="100px" src="img/elections.svg" alt="poll_logo">Poll</a>
-          </li>
-          <li>
-            <a href="timetracking/index.php"><img width="100px" height="100px" src="img/hourglass.svg" alt="timetracking_logo">Timetracker</a>
-          </li>
-      </ul>
- 
 <?php
 // Ist der User nicht eingelogged, bekommt er die Möglichkeit dazu. Auch ein link zum registrieren wird angezeigt.
 } else {
@@ -92,5 +94,12 @@ echo '<p> Admin! </p>';
 }
 
 ?>
+<footer>
+    <div class="footer">
+        <div>
+            <p>CRM 2018 - Michael Schwartz</p>
+        </div>
+    </div>
+</footer>
   </body>
   </html>

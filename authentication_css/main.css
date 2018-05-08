@@ -1,3 +1,7 @@
+html,
+body {
+    height: 100%;
+}
 .navbar {
     padding: .5rem 2rem;
 }
@@ -6,3 +10,32 @@
     color: #fff;
     font-size: 1.3em;
 }
+
+.container {
+    margin-top: 4em;
+}
+
+.col {
+    padding: 3em;
+    margin: 0em 2em 6em 2em;
+    border-radius: 10px;
+    text-align: center;
+    background-color: darkgray;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    color: #fff;
+    text-transform: uppercase;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 4em;
+    width: 100%;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    text-align: center;
+ }
