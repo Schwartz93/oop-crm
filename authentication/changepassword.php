@@ -115,24 +115,24 @@ function checkTime(i) {
   <div id="current_time"></div>
 </div>
 <!-- Form Anfang -->
-<div class="form-wrapper">
+<div class="form-wrapper-changepw">
         <form action="" method="post">
             <div class="form-group">
                 <div class="field">
                     <label for="password_current">Current password</label>
-                    <input type="password" name="password_current" id="password_current">
+                    <input class="form-control" type="password" name="password_current" id="password_current">
                 </div>
             </div>
             <div class="form-group">
                 <div class="field">
                     <label for="password_again">New password</label>
-                    <input type="password" name="password_new" id="password_new">
+                    <input class="form-control" type="password" name="password_new" id="password_new">
                 </div>
             </div>
             <div class="form-group">
                 <div class="field">
                     <label for="password_new_again">Confirm new password</label>
-                    <input type="password" name="password_new_again" id="password_new_again">
+                    <input class="form-control" type="password" name="password_new_again" id="password_new_again">
                 </div>
             </div>
         <input type="submit" value="Change">

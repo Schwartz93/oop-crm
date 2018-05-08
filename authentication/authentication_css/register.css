@@ -35,6 +35,12 @@ body {
    margin: 5em 30%;
 }
 
+.form-wrapper-changepw {
+    min-width: 30%;
+    margin: 5em 30%;
+    margin-top: 16em;
+}
+
 .footer {
    position: fixed;
    left: 0;
