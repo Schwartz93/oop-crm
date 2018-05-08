@@ -112,7 +112,7 @@ echo '<p> Admin! </p>';
 <footer>
     <div class="footer">
         <div>
-            <p>CRM 2018 - Michael Schwartz</p>
+            <p class="copyright">CRM 2018 - Michael Schwartz</p>
         </div>
     </div>
 </footer>
