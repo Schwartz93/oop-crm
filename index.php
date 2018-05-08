@@ -46,14 +46,12 @@
     </span>
   </div>
 </nav>
-<script>$(.'img').hover(makeBigger, returnToOriginalSize);
-
-function makeBigger() {
-    $(this).css({height: '+=10%', width: '+=10%'});
-}
-function returnToOriginalSize() {
-    $(this).css({height: "", width: ""});
-}</script>
+<div class="date">
+  <div class="today"><?php echo "Today is " . date("d/m/Y") . "<br>"; ?></div>
+</div>
+<div class="time">
+  <div class="current_time">19:31:32</div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col">
