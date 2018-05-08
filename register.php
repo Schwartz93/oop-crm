@@ -112,16 +112,21 @@ require_once 'core/init.php';
                 <input class="form-control" type="text" name="name" value="<?php echo escape(Input::get('name')); ?>" id="name">
             </div>
         </div>
+        <div class="form-group">
+                <div class="field">
+                    <a href="login.php">Already have an account? Click Here to login</a>
+                </div>
+        </div>  
             <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 
-            <input type="submit" value="Register">
+            <input class="btn btn-primary" type="submit" value="Register">
         </form>
     </div>
 </body>
 <footer>
     <div class="footer">
         <div>
-            <p>CRM 2018 Michael Schwartz</p>
+            <p>CRM 2018 - Michael Schwartz</p>
         </div>
     </div>
 </footer>

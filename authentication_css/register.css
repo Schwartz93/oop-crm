@@ -1,41 +1,45 @@
 h1 {
-    margin-bottom: 2rem;
+   margin-bottom: 2rem;
 }
 
 p {
-    margin-top: 35px;
+   margin-top: 17px;
 }
 
 .click {
-    text-decoration: underline;
+   text-decoration: underline;
 }
 a:hover {
-    text-decoration: none;
+   text-decoration: none;
 }
 .jumbotron {
-    padding: 4rem 10rem;
-    margin-bottom: 0;
+   padding: 1rem 10rem;
+   margin-bottom: 0;
 }
 .underline {
-    width: 100%;
-    height: 1em;
-    background-color: rgb(49, 49, 49);
+   width: 100%;
+   height: 1em;
+   background-color: rgb(49, 49, 49);
+}
+
+.error {
+   display: inline;
 }
 
 body {
-    padding: 0 auto;
+   padding: 0 auto;
 }
 
 .form-wrapper {
-    min-width: 30%;
-    margin: 5em 30%;
+   min-width: 30%;
+   margin: 5em 30%;
 }
 
 .footer {
    position: fixed;
    left: 0;
    bottom: 0;
-   height: 6em;
+   height: 4em;
    width: 100%;
    background-color: rgb(49, 49, 49);
    color: white;

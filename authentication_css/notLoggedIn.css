@@ -12,6 +12,7 @@ a:hover {
 .jumbotron {
     padding: 4rem 10rem;
     margin-bottom: 0;
+    display: none;
 }
 .underline {
     width: 100%;

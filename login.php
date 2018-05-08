@@ -88,7 +88,7 @@
 <footer>
     <div class="footer">
         <div>
-            <p>CRM 2018 Michael Schwartz</p>
+            <p>CRM 2018 - Michael Schwartz</p>
         </div>
     </div>
 </footer>
