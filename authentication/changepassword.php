@@ -60,13 +60,20 @@ if(Input::exists()) {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="authentication_css/main.css">
     <link rel="stylesheet" href="authentication_css/register.css">
+    <link rel="stylesheet" href="authentication_css/update_details.css">
 
     <title>Home</title>
   </head>
   <body onload="startTime()">
+  <script> 
+$(document).ready(function(){
+   $(".notice").slideDown("slow");
+});
+</script>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <p class="welcome">Welcome <a class="navbar-brand" href="profile.php?user=<?php echo escape($user->data()->username); ?>"><?php echo escape($user->data()->username); ?></a></p>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,6 +121,11 @@ function checkTime(i) {
 <div class="time">
   <div id="current_time"></div>
 </div>
+<div class="notice">
+    <p class="notice_p">Enter your current Password. After that choose a new one and confirm it. 
+                        Press "Change" to update your password.
+                        (Remember a valid password must be at least 6 characters long!</p>
+</div>
 <!-- Form Anfang -->
 <div class="form-wrapper-changepw">
         <form action="" method="post">
@@ -135,7 +147,7 @@ function checkTime(i) {
                     <input class="form-control" type="password" name="password_new_again" id="password_new_again">
                 </div>
             </div>
-        <input type="submit" value="Change">
+        <input class="btn btn-primary" type="submit" value="Change">
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
         </form>
     </div>

@@ -1,0 +1,25 @@
+.notice {
+    background-color: #363A40;
+    width: 300px;
+    height: 150px;
+}
+
+.notice {
+    position: absolute;
+    left: 34%;
+    background-color: #363A40;
+    color: #fff;
+    margin: 0 auto;
+    width: 600px;
+    height: 150px;
+    padding: 1em;
+    border-radius: 0px 0px 5px 5px;
+    border: 3px solid green;
+    border-top: none;
+    display: none;
+    
+}
+
+.form-wrapper-changepw {
+    margin-top: 17em;
+}
