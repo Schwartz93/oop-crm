@@ -1,6 +1,25 @@
-.poll {
-    padding : 20px;
-    border: 1px solid #ccc;
+li {
+    list-style-type: none;
+    margin-top: 2em;
+}
+
+ul {
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.row {
+    text-align: center;
+}
+.poll_li {
+    color: #fff;
+    font-weight: bold;
+    list-style-type: none;
+    margin-top: 2em;
+    text-transform: uppercase;
 }
 
 .poll-question {

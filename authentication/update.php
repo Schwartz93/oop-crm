@@ -120,8 +120,9 @@ function checkTime(i) {
     <div class="field">
         <label for="name">Name</label>
         <input class="form-control" type="text" name="name" id="name" value="<?php echo escape($user->data()->name); ?>">
-
+        <div class="update-btn">
         <input class="btn btn-primary" type="submit" value="Update">
+        </div>
         <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 
     </div>
