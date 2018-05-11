@@ -1,5 +1,5 @@
 <?php 
-// Conecction einbinden
+// Connection einbinden
 require_once 'app/init.php';
 // Überprüfen ob der GET Parameter 'poll' Werte enthält. Falls nicht wird zur index.php weitergeleitet.
 if(!isset($_GET['poll'])) {
