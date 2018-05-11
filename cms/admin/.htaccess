@@ -1,4 +1,4 @@
 AuthType Basic
 AuthName "Restricted Area"
-AuthUserFile /Applications/MAMP/htdocs/oop-crm/cms/admin/.htpasswd
+AuthUserFile C:\MAMP\htdocs\oop-crm\cms\admin\.htpasswd
 require valid-user
