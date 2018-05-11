@@ -74,8 +74,8 @@ $(document).ready(function(){
    $(".notice").slideDown("slow");
 });
 </script>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <p class="welcome">Welcome <a class="navbar-brand" href="profile.php?user=<?php echo escape($user->data()->username); ?>"><?php echo escape($user->data()->username); ?></a></p>
+  <nav class="navbar navbar-expand-lg ">
+  <p class="welcome">Update Password</p>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
