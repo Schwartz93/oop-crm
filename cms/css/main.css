@@ -11,6 +11,10 @@ table {
     text-align: center;
 }
 
+.edit-wrapper {
+    margin: 1em 35em;
+}
+
 .list-wrapper {
     margin: 4em 30em;
     text-align: center;
@@ -36,7 +40,7 @@ h3,
 h4,
 h5 {
     font-weight: 200;
-    margin: 1em;
+    margin: 1em 0em;
 }
 
 input, 
