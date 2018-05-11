@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="../../authentication/authentication_css/main.css">
     <link rel="stylesheet" href="../css/main.css">
-    <title>Polls</title>
+    <title>CMS/Blog</title>
 </head>
 <body onload="startTime()">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<p class="welcome">Polls<a class="navbar-brand"></a></p>
+<p class="welcome">CMS/Blog<a class="navbar-brand"></a></p>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -91,7 +91,7 @@ function checkTime(i) {
         </table>
     <?php endif; ?>   
 <!-- Funktion um eine neue Seite hinzuzufügen -->
-    <a href="<?php echo BASE_URL; ?>/admin/add.php"><img src="../../img/file.svg" width="40px" height="40px" alt="add_file_logo"><p>Add new page</p></a> 
+    <a href="<?php echo BASE_URL; ?>/admin/add.php"><img src="../../img/file.svg" width="50px" height="50px" alt="add_file_logo"><p>Add new page</p></a> 
     </div> 
 <footer>
     <div class="footer">
