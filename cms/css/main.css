@@ -1,7 +1,25 @@
 body {
     font: 1em "Helvetica", sans-serif;
-    background-color: grey;
     margin: 0 ;
+}
+
+table {
+    color: #fff;
+    background-color: #353A40;
+    margin: 0 auto;
+    margin-bottom: 3em;
+    text-align: center;
+}
+
+.list-wrapper {
+    margin: 4em 3em;
+    text-align: center;
+    background-color: rgb(47, 107, 197);
+    border-radius: 3px;
+}
+
+p {
+    color: #fff;
 }
 
 .wrapper {
@@ -41,9 +59,16 @@ label {
 }
 
 table th {
-    text-align: left;
+    text-align: center;
+    padding: 0 3em;
+    font-size: 1.5em;
+    padding: 1em 2em;
+    border-radius: 2px;
 }
 
-.faded {
-    color: #bbb;
+td {
+    padding: 1em 0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    background-color: rgb(26, 26, 27);
 }
