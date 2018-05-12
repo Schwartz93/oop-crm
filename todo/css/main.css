@@ -16,7 +16,7 @@ a {
 /* LIST */
 .list {
     background-color:#fff;
-    margin:20px auto;
+    margin: 10em auto;
     width: 100%;
     max-width: 500px;
     padding: 20px;
@@ -26,7 +26,7 @@ a {
 }
 
 .list .header {
-    font-family: "Shadows Into Light Two", cursive;
+    font-family: cursive;
     margin: 0 0 10px 0;
 }
 
@@ -104,4 +104,16 @@ a {
     width:100%;
     margin-top: 10px;
     box-shadow: 3px 3px 0 #ddd;
+}
+
+.done-button {
+    float: right;
+}
+
+.not-done-button {
+    float: right;
+}
+
+.delete-button {
+    float: right;
 }
