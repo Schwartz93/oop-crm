@@ -11,4 +11,4 @@ if(isset($_GET['id'])) {
     $deletePage->execute(['id' => $_GET['id']]);
 }
 // Weiterleiten zu list.php
-header('Location: ' . BASE_URL . '/admin/list.php');
+header('Location: ' . BASE_URL . 'admin/list.php');

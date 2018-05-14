@@ -21,7 +21,7 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="../authentication/index.php"><img src="../../img/house.svg" width="30px" height="30px" alt="home_logo"><span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../../../../authentication/index.php"><img src="../../img/house.svg" width="30px" height="30px" alt="home_logo"><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
