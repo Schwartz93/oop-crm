@@ -7,7 +7,7 @@
 
         <?php echo e($page['body']); ?>
 
-        <p class="faded">
+        <p style="color: #000;" class="faded">
             Created on <?php echo $page['created']->format('d M Y'); ?>
             <?php if($page['updated']): ?>
                 Last updated <?php echo $page['updated']->format('d M Y H:i:s'); ?>

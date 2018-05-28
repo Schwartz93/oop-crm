@@ -15,6 +15,10 @@ body {
     margin: 0;
 }
 
+.admin_message{
+    color: #fff;
+}
+
 .date {
     color: #fff;
     font-weight: bold;
